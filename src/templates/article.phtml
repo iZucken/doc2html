@@ -1,0 +1,23 @@
+<?php
+/** @var $this BasicRender */
+/** @var $article ArticleDTO */
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="<?= $this->escape( $article->title ) ?> в Москве. Бесплатная диагностика. Гарантия качества. Записаться - 8(495)150-70-69.">
+    <meta name="keywords" content="<?= $this->escape( $article->title ) ?>">
+    <title><?= $this->escape( $article->title ) ?> в Москве - Автосервис "Роверсити"</title>
+</head>
+<body style="background: #f0f0f0;padding: 1in 0 1in 1in;">
+<h1><?= $this->escape( $article->title ) ?></h1>
+<?php
+    // NOTE: template syntax is omitted to avoid unnecessary whitespace
+    foreach( $article->sections as $section ) {
+        //TODO: add section escaping; for that another Section object would be needed, which will be rendered here recursively
+        echo $section;
+    }
+?>
+</body>
+</html>
